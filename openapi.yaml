@@ -1,0 +1,163 @@
+openapi: 3.1.0
+info:
+  title: IncuBrix B-roll Video Engine
+  version: 0.1.0
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /health:
+    get:
+      summary: Liveness check
+      responses:
+        "200":
+          description: Service is alive
+  /ready:
+    get:
+      summary: Check local media pipeline prerequisites
+      responses:
+        "200":
+          description: Ready
+        "503":
+          description: Missing configured prerequisites
+  /api/v1/broll/jobs:
+    post:
+      summary: Submit a script or audio-to-video job
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/JobRequest"
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                script:
+                  type: string
+                audio:
+                  type: string
+                  format: binary
+                style:
+                  type: string
+                aspect_ratios:
+                  type: string
+                  description: JSON array of 16:9, 9:16, and/or 1:1
+      responses:
+        "202":
+          description: Job accepted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Submission"
+        "422":
+          description: Invalid input
+        "415":
+          description: Unsupported audio format
+  /api/v1/jobs/{job_id}:
+    get:
+      summary: Read job status and progress
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: Job status
+  /api/v1/jobs/{job_id}/result:
+    get:
+      summary: Get output download URLs
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: Completed output URLs
+        "409":
+          description: Result not ready
+  /api/v1/jobs/{job_id}/timeline:
+    get:
+      summary: Read scene timeline and coverage
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: Timeline JSON
+  /api/v1/jobs/{job_id}/manifest:
+    get:
+      summary: Read provenance and run manifest
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: Manifest JSON
+  /api/v1/jobs/{job_id}/files/{filename}:
+    get:
+      summary: Download an output file or scene preview
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+        - in: path
+          name: filename
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: File bytes
+        "404":
+          description: File not found
+components:
+  parameters:
+    JobId:
+      in: path
+      name: job_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    JobRequest:
+      type: object
+      required: [script]
+      properties:
+        script:
+          type: string
+          minLength: 1
+        scene_list:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        style:
+          type: string
+          default: documentary
+        avoid_content:
+          type: array
+          items:
+            type: string
+        aspect_ratios:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            enum: ["16:9", "9:16", "1:1"]
+        burn_captions:
+          type: boolean
+          default: true
+        include_srt:
+          type: boolean
+          default: true
+    Submission:
+      type: object
+      required: [job_id, status, status_url]
+      properties:
+        job_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [queued]
+        status_url:
+          type: string

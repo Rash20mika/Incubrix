@@ -1,0 +1,16 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+outputs/
+temp/
+local_footage/
+*.db
+*.sqlite
+*.sqlite3
+*.mp4
+*.wav
+*.mp3
+*.m4a

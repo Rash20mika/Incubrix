@@ -1,0 +1,32 @@
+2026-10-20 22:45:55.998 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
++------------------------- Traceback (most recent call last) --------------------------+
+| C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\runtime\scri |
+| ptrunner\exec_code.py:136 in exec_func_with_error_handling                           |
+|                                                                                      |
+| C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\runtime\scri |
+| ptrunner\script_runner.py:924 in code_to_exec                                        |
+|                                                                                      |
+| E:\Incubrix\streamlit_app.py:14 in <module>                                          |
+|                                                                                      |
+|    11 import requests                                                                |
+|    12 import streamlit as st                                                         |
+|    13                                                                                |
+| >  14 from incubrix.recorder import recorder_html                                    |
+|    15 from incubrix.timeline_editor import customize_timeline                        |
+|    16                                                                                |
+|    17 API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")                        |
++--------------------------------------------------------------------------------------+
+ModuleNotFoundError: No module named 'incubrix'
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\testing\v1\app_test.py", line 616, in run
+    return self._tree.run(timeout=timeout)
+  File "C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\testing\v1\element_tree.py", line 2911, in run
+    result = self._runner._run(widget_states, timeout=timeout)
+  File "C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\testing\v1\app_test.py", line 530, in _run
+    self._tree = script_runner.run(
+  File "C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\testing\v1\local_script_runner.py", line 183, in run
+    require_widgets_deltas(self, timeout)
+  File "C:\Users\rashm\AppData\Roaming\Python\Python310\site-packages\streamlit\testing\v1\local_script_runner.py", line 247, in require_widgets_deltas
+    raise RuntimeError(err_string)
+RuntimeError: AppTest script run timed out after 3(s)

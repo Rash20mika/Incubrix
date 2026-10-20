@@ -1,0 +1,16 @@
+Generated MP4 FFprobe audit
+Recorded at: 2026-10-20T22:45:49.533015+05:30
+Method: ffprobe stream and container metadata; no frame-content, watermark, or subjective review.
+MP4 count: 12
+outputs/00e34786-f30e-44a1-bed3-8947dc86aa23/video_16_9.mp4 | 21.600s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=2 | last_scene_end=21.600s | audio_drift=not recorded in timeline
+outputs/152ce9d6-291f-4029-a66b-5e81a48936e1/video_16_9.mp4 | 21.567s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=4 | last_scene_end=21.560s | audio_drift=not recorded in timeline
+outputs/21995e1f-9cbe-4dc7-aa2a-d5c503657428/video_16_9.mp4 | 32.067s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=32.056s | audio_drift=+0.011s (format duration minus timeline narration duration)
+outputs/257ad216-63fe-48cb-a035-451a1842a79a/video_16_9.mp4 | 2.149s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=1 | last_scene_end=2.133s | audio_drift=not recorded in timeline
+outputs/2ff0a0be-fff4-465a-8b4f-1d018dfbf544/video_16_9.mp4 | 26.773s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=26.773s | audio_drift=+0.000s (format duration minus timeline narration duration)
+outputs/37fa65b1-fbc4-4927-b768-812ac904a2f6/video_16_9.mp4 | 30.867s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=30.867s | audio_drift=not recorded in timeline
+outputs/a160e656-f9cd-4df2-8fc9-0eb34309b92c/video_16_9.mp4 | 31.947s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=31.947s | audio_drift=+0.000s (format duration minus timeline narration duration)
+outputs/b84e8b59-eb1a-492c-beef-2cf4adc0adb5/video_16_9.mp4 | 26.833s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=5 | last_scene_end=26.819s | audio_drift=+0.014s (format duration minus timeline narration duration)
+outputs/c43434de-9755-48c2-aaf9-104fd83a7b64/video_16_9.mp4 | 32.548s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=32.533s | audio_drift=not recorded in timeline
+outputs/decf5a35-128f-4292-aeae-febf7b4903b7/video_16_9.mp4 | 32.548s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=32.533s | audio_drift=not recorded in timeline
+outputs/e7cc5980-3bb9-4b4d-9772-e1086da09eb6/video_16_9.mp4 | 2.300s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=1 | last_scene_end=2.289s | audio_drift=not recorded in timeline
+outputs/fcc15c24-d513-498c-bc2b-05b321af6220/video_16_9.mp4 | 32.900s | 1920x1080 | fps=30/1 | pix_fmt=yuv420p | v=h264 | a=aac | scenes=6 | last_scene_end=32.900s | audio_drift=not recorded in timeline
